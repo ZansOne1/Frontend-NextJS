@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
                 {/* Page content */}
-                <main className="flex-1 overflow-y-auto p-6 bg-gray-100 max-h-screen max-w-full">
+                <main className="flex-1 overflow-y-auto pt-4 pr-4 pb-4 pl-6 bg-gray-100 max-h-screen max-w-full">
                     {children}
                 </main>
 

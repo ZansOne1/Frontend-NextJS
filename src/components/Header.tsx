@@ -3,6 +3,7 @@
 import { Bell, User } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { deleteCookie } from 'cookies-next';
 
 export default function Header({ toggleSidebar }: { toggleSidebar: () => void }) {
     const [username, setUsername] = useState('');
@@ -58,7 +59,7 @@ export default function Header({ toggleSidebar }: { toggleSidebar: () => void })
                             </Link>
                             <button
                                 onClick={() => {
-                                    localStorage.removeItem('token');
+                                    deleteCookie('token');
                                     localStorage.removeItem('username');
                                     window.location.href = '/login';
                                 }}

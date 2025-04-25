@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { API_BASE_URL } from '@/lib/constant';
 import { SECRET_KEY } from '@/lib/constant';
 import CryptoJS from "crypto-js";
+import { setCookie } from 'cookies-next';
 
 export default function LoginForm() {
     const router = useRouter();
@@ -37,7 +38,11 @@ export default function LoginForm() {
 
         if (res.ok) {
             // Simpan token (sementara pakai localStorage)
-            localStorage.setItem('token', data.token);
+            setCookie('token', data.token, {
+                maxAge: 2 * 60 * 60, // 2 jam
+                path: '/',
+            });
+            // localStorage.setItem('token', data.token);
             localStorage.setItem('username', data.user.username);
             localStorage.setItem('email', data.user.email);
             router.push('/dashboard');

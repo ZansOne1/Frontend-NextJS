@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -13,9 +13,21 @@ export default function Sidebar({ isOpen, toggleSidebar }: { isOpen: boolean; to
     const [userMenuOpen2, setUserMenuOpen2] = useState(false);
     const [userMenuOpen3, setUserMenuOpen3] = useState(false);
     const pathname = usePathname();
-
+    useEffect(() => {
+        if (
+            pathname?.startsWith('/users') ||
+            pathname?.startsWith('/roles') ||
+            pathname?.startsWith('/permissions') ||
+            pathname?.startsWith('/profile')
+        ) {
+            setUserMenuOpen(true);
+            setUserMenuOpen2(true);
+            setUserMenuOpen3(true);
+        }
+    }, [pathname]);
     return (
         <>
+
             <aside className={`fixed md:static z-40 md:z-auto bg-white shadow-md h-full w-64 p-4 transform transition-transform duration-300 
                 ${isOpen ? 'md:ml-[-260]' : '-translate-x-full'} md:translate-x-0`}>
                 <div className="flex justify-between items-center">

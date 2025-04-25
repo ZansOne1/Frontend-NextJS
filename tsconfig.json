@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/register/page.tsx",
-    "src/components/Footer.js",
+    "src/components/Footer.tsx",
     "src/app/register/page.tsx"
   ],
   "exclude": [
