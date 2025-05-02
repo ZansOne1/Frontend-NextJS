@@ -70,6 +70,7 @@ export default function Navbar({ activeSection }: Props) {
 
                 {/* Mobile toggle */}
                 <button
+                    id="toggle"
                     ref={toggleButtonRef}
                     className="md:hidden text-2xl text-gray-600 focus:outline-none"
                     onClick={(e) => {
@@ -110,6 +111,7 @@ export default function Navbar({ activeSection }: Props) {
                     {/* Product Dropdown */}
                     <div className="relative " ref={menuRef}>
                         <button
+                            id="product"
                             onClick={() => setProductOpen(!isProductOpen)}
                             className="flex items-center gap-1 text-black font-medium hover:text-blue-600 transition cursor-pointer"
                         >
@@ -183,7 +185,7 @@ export default function Navbar({ activeSection }: Props) {
                     </div>
 
                     <Link href="/login">
-                        <button className="mt-4 w-full bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                        <button id="login2" className="mt-4 w-full bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition">
                             Login
                         </button>
                     </Link>
